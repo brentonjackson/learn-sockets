@@ -34,7 +34,7 @@ int main()
 
     printf("obtained socket...\n");
 
-    // 4. bind socket to local address
+    // 4. bind socket to local interface address
     rc = bind(s, (const struct sockaddr *)&local, sizeof(local));
     if (rc < 0)
     {

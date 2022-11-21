@@ -22,9 +22,9 @@ int main(int argc, char *argv[])
 
     // 2. setup server address (localhost)
     peer.sin_family = AF_INET;
-    int port = atoi(argv[1]);
-    peer.sin_port = htons(port);
-    peer.sin_addr.s_addr = inet_addr("0.0.0.0"); // listen on every network interface
+    int port = atoi(argv[1]);             // ascii to int conversion
+    peer.sin_port = htons(port);          // short int from host to network byte order
+    inet_aton("0.0.0.0", &peer.sin_addr); // listen on every network interface
 
     // 3. obtain socket
     s = socket(AF_INET, SOCK_STREAM, 0);
